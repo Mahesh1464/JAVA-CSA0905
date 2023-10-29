@@ -1,0 +1,51 @@
+public class NumberPattern {
+    public static void main(String[] args) {
+        int n = 4; // Number of rows in the top half of the pattern
+
+        // Print the top half of the pattern
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("   ");
+            }
+
+            // Print numbers in ascending order
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+                if (j < i) {
+                    System.out.print("  ");
+                }
+            }
+
+            // Print numbers in descending order (excluding the last number)
+            for (int j = i - 1; j >= 1; j--) {
+                System.out.print("  " + j);
+            }
+
+            System.out.println();
+        }
+
+        // Print the bottom half of the pattern
+        for (int i = n - 1; i >= 1; i--) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print("   ");
+            }
+
+            // Print numbers in ascending order
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+                if (j < i) {
+                    System.out.print("  ");
+                }
+            }
+
+            // Print numbers in descending order (excluding the last number)
+            for (int j = i - 1; j >= 1; j--) {
+                System.out.print("  " + j);
+            }
+
+            System.out.println();
+        }
+    }
+}
