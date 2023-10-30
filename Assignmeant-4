@@ -1,0 +1,49 @@
+import java.util.*;
+public class Account {
+    private double balance;
+    public Account(double initialBalance) {
+        this.balance = initialBalance;
+    }
+    public Account() {
+        this.balance = 0;
+    }
+    public void deposit(double amount) {
+        this.balance += amount;
+        System.out.println("Deposited: $" + amount);
+    }
+    public void withdraw(double amount) {
+        if (amount > balance) {
+            System.out.println("Insufficient funds. Withdrawal not allowed.");
+            balance -= 5; 
+        } else {
+            this.balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        }
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public void computeInterest(double interestRate) {
+        double interest = balance * interestRate / 100;
+        balance += interest;
+        System.out.println("Interest added: $" + interest);
+    }
+
+    public static void main(String[] args) {
+   
+        Account myAccount = new Account(1000); 
+        System.out.println("Initial balance: $" + myAccount.getBalance());
+
+        myAccount.deposit(500); 
+        System.out.println("Current balance after deposit: $" + myAccount.getBalance());
+
+        myAccount.withdraw(200); 
+        System.out.println("Current balance after withdrawal: $" + myAccount.getBalance());
+
+        myAccount.withdraw(2000);
+        System.out.println("Current balance after attempting to overdraw: $" + myAccount.getBalance());
+
+        myAccount.computeInterest(5); 
+        System.out.println("Current balance after computing interest: $" + myAccount.getBalance());
+    }
+}
